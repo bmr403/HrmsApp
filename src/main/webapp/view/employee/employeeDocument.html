@@ -1,0 +1,153 @@
+<table id="employeeDocList_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+
+			<th>Type</th>
+			<th>Document No.</th>
+			<th>Issued Date</th>
+			<th>Expiry Date</th>
+			<th>Issued By</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<div class="Widget">
+	<form id="employee-document-form" novalidate="novalidate">
+		<h4 class="widgettitle">Documents Information</h4>
+		<div class="widgetcontent">
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Document Type</label>&nbsp;<font color="red">*</font> <span
+							class="field"> <select id="documentType"
+							name="documentType" class="form-control">
+								<option id="0">Select Document Type</option>
+								<option id="RESUME">Resume</option>
+								<option id="EMPLOYMENTCONTRACT">Employment Contract</option>
+								<option id="PASSPORT">Passport</option>
+								<option id="VISA">Visa</option>
+						</select>
+							<p id="documentTypeError" style="color: red; display: none;">
+								<input id="empDocGemsEmployeeMasterId" type="hidden"
+									name="empDocGemsEmployeeMasterId" class="form-control" /> <input
+									type="hidden" name="gemsEmployeeImmigrationDetailId"
+									id="gemsEmployeeImmigrationDetailId" /></span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Document No.</label><span class="field"> <input
+							type="text" name="documentNumber" id="documentNumber"
+							class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Issued Date</label><span class="field"> <input
+							id="issuedDate" type="text" name="issuedDate"
+							class="form-control" />
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Expiry Date</label>&nbsp; <span class="field"> <input
+							id="expiryDate" type="text" name="expiryDate"
+							class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Issued By</label><span class="field"> <input
+							type="text" name="issuedBy" id="issuedBy" class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Select File (Max.File Size 1 MB)</label>&nbsp;<font
+							color="red">*</font><span class="field"> <input
+							type="file" name="file" id="file" class="form-group" />
+							<p id="fileError" style="color: red; display: none;"></p>
+						</span>
+					</div>
+				</div>
+
+
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>
+					<p>
+						<label>Is Active ?</label> &nbsp;<span class="field"> <br>
+						<input type="checkbox" name="docActiveStatus" id="docActiveStatus" />
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group" align="right">
+				<button type="submit" class="btn btn-primary" id="addEmployeeDocBtn">Save</button>
+				<button type="reset" class="btn btn-primary" id="empDoc_cancel_btn">Cancel</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+
+<div class="modal fade" id="success_empdoc_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">Success</h4>
+			</div>
+			<div class="modal-body">
+				<p>Document updated successfully</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="ok_docbtn">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="error_empdoc_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">Error</h4>
+			</div>
+			<div class="modal-body">
+				<p style="color: red">Document update failed.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="error_docbtn">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../view/employee/employeeDocument.js"></script>

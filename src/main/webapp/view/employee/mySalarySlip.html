@@ -1,0 +1,55 @@
+
+<div class='panel-body filters'>
+
+	<div class='row'>
+		<div class='col-md-9'>
+			<h4 class="modal-title">Search Payslip</h4>
+		</div>
+		<div class='col-md-3'></div>
+	</div>
+	<div class='row'>
+		<form class="form form-horizontal" id="searchForm_projectType">
+			<div class='col-md-3'>
+				<input type="text" name="payslipDate_Search" id="payslipDate_Search"
+					class="form-control" placeholder="Select Month/Year">
+			</div>
+			<div class='col-md-3'>
+				<button type="button" class="btn btn-primary"
+					id="search_payslip_btn">
+					<i class="fa fa-search"></i>&nbsp; Search
+				</button>
+				<button type="button" class="btn btn-primary"
+					id="resetsearch_payslip_btn" data-dismiss="modal">Reset</button>
+			</div>
+		</form>
+	</div>
+
+</div>
+<table id="mypayslip_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+			<th>Employee Code</th>
+			<th>Employee Name</th>
+			<th>Month/Year</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+
+
+<script src="../../view/timesheet/jquery.mtz.monthpicker.js"></script>
+<script src="../../view/employee/mySalarySlip.js"></script>

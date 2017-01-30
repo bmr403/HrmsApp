@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>:: HRMS ::</title>
+<script src="../../resources/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="docdelete_success_message" style="color: green; display: none">
+	<p align=\"center\">Record deleted successfully</p>
+</div>
+<div id="docdelete_error_message" style="color: red; display: none">
+	<p align=\"center\">Error during record delete, please contact administrator.</p>
+</div>
+<div id="docsave_success_message" style="color: green; display: none">
+	<p align=\"center\">Document uploaded successfully</p>
+</div>
+<div id="docsave_error_message" style="color: green; display: none">
+	<p align=\"center\">Error during document upload,  please contact administrator.</p>
+</div>
+
+<table id="customerDocumentList_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+
+			<th>Document</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<div class="Widget">
+	<form id="customer-document-form" novalidate="novalidate">
+		<h4 class="widgettitle">Document Information</h4>
+		<div class="widgetcontent">
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Select File (Max.File Size 2 MB)</label>&nbsp;<font
+							color="red">*</font><span class="field"> <input
+							type="file" name="file" id="file" class="form-group" />
+							<p id="fileError" style="color: red; display: none;"></p>
+						</span> <input type="hidden" name="documentgemsCustomerMasterId"
+							id="documentgemsCustomerMasterId" />
+					</div>
+				</div>
+
+			</div>
+			<div class="form-group" align="right">
+				<button type="submit" class="btn btn-primary"
+					id="addCustomerDocumentBtn">Save</button>
+				<button type="reset" class="btn btn-primary"
+					id="customerDocumentCancelBtn">Cancel</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+
+
+
+
+
+	<!-- / footer -->
+
+	<script src="../../view/customer/customerDocument.js"></script>
+	
+	
+	
+	
+</body>
+</html>
+
+

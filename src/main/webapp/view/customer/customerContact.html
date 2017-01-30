@@ -1,0 +1,124 @@
+<div id="contactdelete_success_message" style="color: green; display: none">
+	<p align=\"center\">Record deleted successfully</p>
+</div>
+<div id="contactdelete_error_message" style="color: red; display: none">
+	<p align=\"center\">Error during record delete, please contact administrator.</p>
+</div>
+<div id="contactsave_success_message" style="color: green; display: none">
+	<p align=\"center\">Contact saved successfully</p>
+</div>
+<div id="contactsave_error_message" style="color: green; display: none">
+	<p align=\"center\">Error during save contact,  please contact administrator.</p>
+</div>
+
+<table id="customerContactList_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Department</th>
+			<th>Designation</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<div class="Widget">
+	<form id="customer-contact-form" novalidate="novalidate">
+		<h4 class="widgettitle">Contact Information</h4>
+		<div class="widgetcontent">
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>First Name</label>&nbsp;<font color="red">*</font> <span
+							class="field"> <input type="text" name="firstName"
+							id="firstName" class="form-control" placeholder="First Name" />
+							<input type="hidden" name="contactgemsCustomerMasterId"
+							id="contactgemsCustomerMasterId" /> <input type="hidden"
+							name="gemsCustomerContactId" id="gemsCustomerContactId" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Last Name</label>&nbsp;<font color="red">*</font><span
+							class="field"> <input type="text" name="lastName"
+							id="lastName" placeholder="Last Name" class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Phone</label><span class="field"> <input type="text"
+							name="contactPhone" id="contactPhone" class="form-control"
+							placeholder="Phone" />
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Mobile</label> <input type="text" name="contactMobile"
+							id="contactMobile" placeholder="Mobile" class="form-control" />
+
+
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Email</label> <input type="text" name="contactEmail"
+							id="contactEmail" placeholder="Email" class="form-control" />
+
+
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<p>
+						<label>Department</label> <input type="text"
+							name="contactDepartment" id="contactDepartment"
+							placeholder="Department" class="form-control" />
+					</p>
+				</div>
+
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>
+					<p>
+						<label>Designation</label> <input type="text"
+							name="contactDesignation" id="contactDesignation"
+							placeholder="Designation" class="form-control" />
+					</p>
+				</div>
+			</div>
+			<div class="form-group" align="right">
+				<button type="submit" class="btn btn-primary"
+					id="addCustomerContactBtn">Save</button>
+				<button type="reset" class="btn btn-primary"
+					id="customerContactCancelBtn">Cancel</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+
+<script src="../../view/customer/customerContact.js"></script>
+
+

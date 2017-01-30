@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>:: HRMS ::</title>
+
+<link href="../resources/css/jquery.ui.css" rel="stylesheet">
+<link href="../resources/css/jquery.dataTables.css" rel="stylesheet">
+
+<!-- Bootstrap core CSS -->
+<link href="../resources/css/bootstrap.css" rel="stylesheet">
+<link href="../resources/css/bootstrap-timepicker.css" rel="stylesheet">
+<link href="../resources/css/jquery.ui.css" rel="stylesheet">
+<!--external css-->
+<link rel="stylesheet" href="../resources/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/zabuto_calendar.css">
+<link rel="stylesheet" type="text/css"
+	href="../resources/js/gritter/css/jquery.gritter.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/lineicons/style.css">
+<!-- Custom styles for this template -->
+<link href="../resources/css/style-responsive.css" rel="stylesheet">
+<link href="../resources/css/table-responsive.css" rel="stylesheet">
+<link href="../resources/css/dataTables.responsive.css" rel="stylesheet">
+<script src="../resources/js/chart-master/Chart.js"></script>
+<link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+	<div id="header">
+		<!--header start-->
+		<header class="header black-bg">
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars tooltips" data-placement="right"
+					data-original-title="Toggle Navigation"></div>
+			</div>
+			<!--logo start-->
+			<a href="http://www.bpatech.com/" class="logo"><b>BPA
+					TECHNOLOGIES</b></a>
+			<!--logo end-->
+			<div class="top-menu">
+				<ul class="nav pull-right top-menu">
+					<li><a class="logout" href="../resources/logout.action">Logout</a></li>
+				</ul>
+			</div>
+		</header>
+		<!--header end-->
+	</div>
+	<div id="left" class="column">
+		<div id="sidebar" class="nav-collapse">
+			<!-- sidebar menu start-->
+			<ul class="nav nav-tabs nav-stacked">
+				<!-- <ul class="sidebar-menu" id="nav-accordion"> -->
+
+				<h5 class="centered" style="margin-top: 70px">INTRANET</h5>
+				<p class="centered">
+					<a href="http://www.bpatech.com/"><img
+						src="../resources/images/ui-sam.jpg" class="img-circle" width="60"></a>
+				</p>
+
+				<li class="" id="dashboard"><a href="../view/dashboard.html"><i
+						class="fa fa-tachometer"></i>&nbsp;DashBoard</a></li>
+
+				<li class="" id="role"><a href="../view/role.html"><i
+						class="fa fa-tasks"></i>&nbsp;Role</a></li>
+
+				<li class="" id="department"><a href="../view/department.html"><i
+						class="fa fa-tasks"></i>&nbsp;Department</a></li>
+
+				<li class="" id="designation"><a
+					href="../view/designation.html"><i class="fa fa-tasks"></i>&nbsp;Designation</a></li>
+
+				<li class="" id="empDetails"><a
+					href="../view/employeeDetails.html"><i class="fa fa-user"></i>&nbsp;Employee
+						Details</a></li>
+
+				<li class="" id="address"><a href="../view/address.html"><i
+						class="fa fa-map-marker"></i>&nbsp;Address</a></li>
+
+				<li class="" id="education"><a href="../view/education.html"><i
+						class="fa fa-graduation-cap"></i>&nbsp;Education</a></li>
+
+				<li class="" id="familyDetails"><a
+					href="../view/familyDetails.html"><i class="fa fa-users"></i>&nbsp;Family
+						Details</a></li>
+
+				<li class="" id="empSkills"><a
+					href="../view/employeeSkills.html"><i class="fa fa-cogs"></i>&nbsp;Employee
+						Skills</a></li>
+
+				<li class="" id="project"><a href="../view/project.html"><i
+						class="fa fa-university"></i>&nbsp;Project</a></li>
+
+				<li class="" id="projectEmp"><a
+					href="../view/projectEmployee.html"><i class="fa fa-cogs"></i>&nbsp;Project
+						Employee</a></li>
+
+				<li class="" id="timesheet"><a href="../view/TimesheetNew.html"><i
+						class="fa fa-tasks"></i>&nbsp;Time Sheet</a></li>
+
+				<li class="" id="timesheetGrid"><a
+					href="../view/timeSheetGrid.html"><i class="fa fa-calendar"></i>&nbsp;Time
+						Sheet Grid</a></li>
+
+				<li class="" id="skills"><a href="../view/skills.html"><i
+						class="fa fa-cogs"></i>&nbsp;Skills</a></li>
+
+				<li class="" id="passPort"><a href="../view/passPort.html"><i
+						class="fa fa-plane"></i>&nbsp;Passport</a></li>
+
+				<li class="" id="visa"><a href="../view/visa.html"><i
+						class="fa fa-cc-visa"></i>&nbsp;Visa</a></li>
+
+
+				<li class="" id="bankDetails"><a
+					href="../view/bankDetails.html"><i class="fa fa-university"></i>&nbsp;Bank
+						Details</a></li>
+
+			</ul>
+			<!-- sidebar menu end-->
+		</div>
+	</div>
+	<div id="center" class="column">
+		<div class="rightpanel">
+
+			<div id="maincontent_div">
+				<div class="">
+					<div class="row col-md-12" id="timesheet_div">
+						<div class="col-md-12">
+							<div class="panel" id="timesheet_panel">
+								<div class="panel-body">
+									<form class="form-inline">
+
+										<div class="panel panel-default">
+											<h4 class="widgettitle">
+												<i class='fa fa-table'></i>&nbsp;TimeSheet List
+											</h4>
+											<div class='panel-body filters'>
+
+												<div class='row' id="timesheet_header">
+													<div class='col-lg-12'>
+														<form class="form form-horizontal form-inline">
+															<div class='col-lg-2'>
+																<a href="../view/timesheet.html"
+																	class="btn btn-primary btn-sm" id="addProject_button">Add
+																	TimeSheet&nbsp;&nbsp;<span class="fa fa-plus"></span>
+																</a>
+
+															</div>
+
+															<div class='col-md-4'>
+																<span for="timesheetExpMonthYear">Select Month :
+																	&nbsp;</span> <input type="text" class="form-control" name=""
+																	id="timesheetExpMonthYear"> </input>
+
+																<!-- <select id="timesheetExpMonth"><option>Select Month : </option></select>
+									<select id="timesheetExpYear"> <option>Select Month : </option></select> -->
+															</div>
+
+															<div class='col-md-4'>
+																<button type="button" class="btn btn-primary"
+																	id="timeSheetExportBtn">
+																	<i class="fa fa-upload"></i>&nbsp; Export to Excel
+																</button>
+															</div>
+														</form>
+													</div>
+
+
+
+
+													<!--  
+							<div class='row'>
+								<div class='col-md-9'>
+									<h4 class="modal-title">Search TimeSheet</h4>
+								</div>
+								<div class='col-md-3'></div>
+							</div>
+							<div class='row'>
+								<form class="form form-horizontal" id="searchForm_timesheet">
+									<div class='col-md-2'>
+										<input type="text" class="form-control"
+											id="projectName_search" placeholder="Project Name">
+									</div>
+									<div class='col-md-2'>
+										<input type="text" class="form-control"
+											id="projectTask_search" placeholder="Task Name">
+									</div>
+									<div class='col-md-2'>
+										<input type="text" class="form-control"
+											id="timeSheetStartDate_search" placeholder="Start Date">
+									</div>
+									<div class='col-md-2'>
+										<input type="text" class="form-control"
+											id="timeSheetEndDate_search" placeholder="End Date">
+									</div>
+									<div class='col-md-4'>
+										<button type="button" class="btn btn-primary"
+											id="search_timesheet_btn">
+											<i class="fa fa-search"></i>&nbsp; Search
+										</button>
+										<button type="button" class="btn btn-primary"
+											id="resetsearch_timesheet_btn" data-dismiss="modal">Reset</button>
+									</div>
+								</form>
+							</div>
+							 -->
+												</div>
+												<table id="timeSheetList_table"
+													class="table table-bordered responsive nowrap"
+													cellspacing="0" width="100%">
+													<thead>
+														<tr>
+															<th>TimeSheet Week</th>
+															<th>Total Working Hours</th>
+															<th>Actions</th>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+											</div>
+
+											<!--	<div class='row' id="timesheet_header">
+								<div class='col-lg-12'>
+								<form class="form form-horizontal form-inline" >
+									<div class='col-lg-2'>
+										<button type="button" class="btn btn-primary btn-sm"id="addProject_button">Add Project&nbsp;&nbsp;<span class="fa fa-plus"></span></button>
+									</div>
+									<div class='col-lg-4'>
+									  <div class="form-group">
+									<label for="week-picker" class="control-label"><strong>Select Week :</strong></label> &nbsp;
+									<input type="text" name="week-picker" id="week-picker" class="form-control week-picker"/>
+									</div>
+									</div>
+									<div class='col-lg-4'>
+										<label><strong>Selected Week is :</strong></label> <b><span id="startDate"></span></b> -- <b><span id="endDate"></span></b>
+									</div>
+								</form>
+								</div>
+							</div> 
+							
+										<table id="timesheetGridtable"
+							class="table table-bordered responsive nowrap table-hover small-text">
+							<thead>
+								<tr class="tr-header" id="timesheet_heading">
+									<th>Client : Project</th>
+									<th>Task</th>
+									<th >MON <span id="monday" name = "monday"></span></th>
+									<th >TUE <span id="tuesday" name = "tuesday"> </span></th>
+									<th >WED <span id="wednesday" name = "wednesday"> </span></th>
+									<th >THU <span id="thursday" name = "thursday"></span></th>
+									<th >FRI <span id="friday" name = "friday"> </span></th>
+									<th >SAT <span id="saturday" name = "saturday"> </span></th>
+									<th>Total </th>
+									<th></th>
+								</tr>
+								
+							</thead>
+							<tbody>
+							
+							</tbody>
+							</table>
+							-->
+									</form>
+									<div id="results"></div>
+								</div>
+
+								<!--	<div id="results"> </div> 
+							<div class="form-group" id = "submitbuttonSection">
+										<button type="submit" class="btn btn-primary timesheet_submit_save_button"
+												id="timesheet_submit_save_button">Submit & Save</button>
+										<button type="submit" class="btn btn-primary"
+												id="timesheet_save_button">Save</button> 
+										<button type="button" class="btn btn-default" id="timesheet_reset_button">Reset</button>
+											
+							</div>
+							-->
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="../resources/js/jquery.js"></script>
+	<script src="../resources/js/jquery-1.11.1.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/bootstrap-datepicker.js"></script>
+	<script src="../resources/js/bootstrap-timepicker.min.js"></script>
+
+	<script class="include" type="text/javascript"
+		src="../resources/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="../resources/js/jquery.scrollTo.min.js"></script>
+	<script src="../resources/js/jquery.nicescroll.js"
+		type="text/javascript"></script>
+	<script src="../resources/js/jquery.sparkline.js"></script>
+
+
+	<!--common script for all pages-->
+	<script src="../resources/js/common-scripts.js"></script>
+	<script src="../resources/js/jquery-ui-1.10.3.min.js"></script>
+	<script src="../resources/js/jquery.ui.timepicker.js"></script>
+	<script src="../resources/js/jquery.dataTables.js"></script>
+	<!-- <script src="../resources/js/datatable_responsive.js"></script> -->
+
+	<script type="text/javascript"
+		src="../resources/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="../resources/js/gritter-conf.js"></script>
+
+	<!--script for this page-->
+	<script src="../resources/js/sparkline-chart.js"></script>
+	<script src="../resources/js/zabuto_calendar.js"></script>
+	<script src="../resources/js/config.js"></script>
+
+	<script>
+	$(document).ready(function () {
+		//var userId = sessionStorage.getItem("userId");
+		var employeeId = "1"; // Kept statically to check cneed to chnage later when user login works fine
+		var sortType = "desc";
+		var serviceURL = envConfig.serviceBaseURL+'/timesheet/viewTimeSheetList.action?employeeId='+employeeId+'&sortType='+sortType;
+						console.log(serviceURL);
+						var timesheetListTable = jQuery("#timeSheetList_table")
+								.DataTable(
+										{
+											"sAjaxSource" : serviceURL,
+											"bProcessing" : false,
+											"bServerSide" : false,
+											"bPaginate" : true,
+											"bFilter" : true,
+											"searching" : false,
+											"bSort" : false,
+											"bDestroy" : true,
+											"bJQueryUI" : false,
+											"sPaginationType" : 'simple_numbers',
+											"iDisplayStart" : 0,
+											"iDisplayLength" : 10,
+											columnDefs : [ {
+												orderable : false,
+												targets : -1
+											} ],
+											"aoColumns" : [
+													{
+														"mData" : "timeSheetWeekRange"
+													},
+													{
+														"mData" : "timeSheetWeekTotalHours"
+													},
+													{
+														"mData" : "timeSheetWeekDetailId",
+														"bSortable" : false,
+														"mRender" : function(data, type, full,timeSheetWeekDetailId) {
+														if(full.timeSheetWeekSavedType == "SUBMIT"){
+														return '';
+															} else {	return '<a href = "#" onClick = "editWeekTimesheet('
+																	+ full.timeSheetWeekDetailId
+																	+ ');" id=\"edit_btn\"><span class=\"glyphicon glyphicon-pencil btn btn-info\" data-toggle=\"tooltip\" data-placement=\"left\" title=\"Edit\"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = \"#\" onClick = "deleteWeekTimesheet('
+																	+ full.timeSheetWeekDetailId
+																	+ ');"  id=\"delete_btn\"><span class=\"glyphicon glyphicon-trash btn btn-danger\" data-toggle=\"tooltip\" data-placement=\"left\" title=\"Delete\"></span></a>';													
+															}	
+														}
+													} ],"fnDrawCallback" : function(oSettings) {
+								//alert($("#timeSheetList_table").find("tr:not(.ui-widget-header)").length);
+								//$('#results').text(JSON.stringify(oSettings, null, '\t'))
+												if (oSettings.fnRecordsTotal() <= 10) {
+													$('.dataTables_length').hide();
+													$('.dataTables_paginate').hide();
+												} else {
+													$('.dataTables_length').show();
+													$('.dataTables_paginate').show();
+												}
+											},
+
+										});
+										
+										
+										
+										
+										
+										
+										$('#timeSheetExportBtn').on('click', function() {
+	 var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+		var firstDay = new Date(year, month, 1);
+		var lastDay = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 0);
+		var monthStartDate = $.datepicker.formatDate('mm/dd/yy', new Date(year, month, 1));
+		var monthEndDate = $.datepicker.formatDate('mm/dd/yy', new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 0));
+		//alert(monthStartDate + " :"+ monthEndDate);
+		//alert($("#timesheetExpMonthYear").val());
+		
+		/* var serviceURL = envConfig.serviceBaseURL+'/timesheet/exportTimeSheetTOExcel.action?monthStartDate='+monthStartDate+'&monthEndDate='+monthEndDate;
+		$('#results').text(JSON.stringify(dataToSend, null, '\t'));
+		console.log(serviceURL); */
+		var sortType = "asc";
+		var serviceURL = envConfig.serviceBaseURL
+			+'/timesheet/exportTimeSheetTOExcel.action?monthStartDate='+monthStartDate+'&monthEndDate='+monthEndDate
+			+'&sortType='+sortType;
+			console.log(serviceURL);
+				window.open(serviceURL,'_blank');
+				//window.location.href = "" + serviceURL;
+		
+		
+		
+			
+			//alert(JSON.stringify(dataToSend));
+		/* 	$.ajax({
+			 dataType : "json",
+			 contentType: "application/json;charset=utf-8",
+							url : serviceURL,
+							type : 'POST',
+							data : {
+									monthStartDate : monthStartDate,
+									monthEndDate : monthEndDate
+							},
+							success : function(response) {
+							alert("Success Function");
+								window.location.href = "timeSheetGrid.html";
+								},
+							failure : function(data) {
+								alert("Failure");
+								},
+            error : function(jqXHR,textStatus,errorThrown ){
+                alert('Error'+errorThrown+" : Status = "+textStatus);
+            }
+			}); */
+			
+    });
+										
+										
+										
+	});
+	
+	
+	function editWeekTimesheet(timeSheetWeekDetailId) {
+	
+	var userId = sessionStorage.getItem("userId");
+	//alert("timeSheet Header Id is :"+timeSheetWeekDetailId);
+	var serviceURL = envConfig.serviceBaseURL+ '/timesheet/editTimeSheet.action?timeSheetWeekDetailId='+ timeSheetWeekDetailId;
+
+	$.ajax({
+		url : serviceURL,
+		dataType : "json",
+		data : {
+			timeSheetWeekDetailId : timeSheetWeekDetailId
+		},
+		type : 'GET',
+		success : function(response) {
+			var timeSheetDetailJson = JSON.stringify(response.data);
+
+			//alert(JSON.stringify(response.data));
+			localStorage.setItem('timeSheetDetailJson', JSON.stringify(response.data));
+			window.location.href = "editTimeSheet.html";
+		},
+		failure : function(data) {
+			window.location.href = "../../";
+
+		},
+		statusCode : {
+			403 : function(xhr) {
+				alert("Session will be Expired");
+				window.location.href = "../../";
+
+			}
+		}
+
+	});
+	
+
+}
+
+function deleteWeekTimesheet(timeSheetWeekDetailId) {
+	
+	var userId = sessionStorage.getItem("userId");
+	//alert("In Delete timeSheet Header Id is :"+timeSheetWeekDetailId);
+	var serviceURL = envConfig.serviceBaseURL+ '/timesheet/deleteTimeSheet.action';
+
+	$.ajax({
+		url : serviceURL,
+		dataType : "json",
+		data : {
+			timeSheetWeekDetailId : timeSheetWeekDetailId
+		},
+		type : 'GET',
+		success : function(response) {
+			window.location.href = "timeSheetGrid.html";
+		},
+		failure : function(data) {
+			window.location.href = "login.html";
+
+		},
+		statusCode : {
+			403 : function(xhr) {
+				alert("Session will be Expired");
+				window.location.href = "../../";
+
+			}
+		}
+
+	});
+	
+
+}
+
+
+ $('#timesheetExpMonthYear').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: false,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+           
+			//alert(monthStartDate + " :"+ monthEndDate);
+			//$("#timesheetExpMonthYear").val();
+        }
+    });
+	
+	
+	
+	
+	</script>
+
+</body>
+</html>

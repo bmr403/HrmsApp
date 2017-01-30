@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>:: HRMS ::</title>
+<link rel="stylesheet" href="../../resources/css/style.default.css" />
+
+<link rel="stylesheet" href="../../resources/css/responsive-tables.css">
+<link rel="stylesheet" href="../../resources/css/font-awesome.css" />
+
+<link rel="stylesheet" href="../../view/timesheet/jQuery-Ui-Custom.css">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="../../resources/js/jquery-1.10.2.min.js"></script>
+<script src="../../resources/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../resources/js/jquery-ui-1.10.3.min.js"></script>
+<script src="../../resources/js/bootstrap.min.js"></script>
+<script src="../../resources/js/modernizr.min.js"></script>
+<script src="../../resources/js/jquery.cookies.js"></script>
+<script src="../../resources/js/jquery.uniform.min.js"></script>
+<script src="../../resources/js/flot/jquery.flot.min.js"></script>
+<script src="../../resources/js/flot/jquery.flot.resize.min.js"></script>
+<script src="../../resources/js/responsive-tables.js"></script>
+<script src="../../resources/js/jquery.slimscroll.js"></script>
+<script src="../../resources/js/custom.js"></script>
+<script src="../../resources/js/canvasjs.min.js"></script>
+<!--[if lte IE 8]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+<style type="text/css">
+.scrollable {
+	float: right;
+	width: 59%;
+	overflow: scroll;
+	overflow-y: hidden;
+}
+
+.pinned {
+	width: 40%;
+	border-right: 1px solid #ccc;
+	float: left;
+}
+
+.table-wrapper {
+	overflow: hidden;
+	border-right: 1px solid #ccc;
+}
+</style>
+
+</head>
+<body>
+	<div id="mainwrapper" class="mainwrapper">
+		<div class="header">
+			<div class="logo">
+				<a href="../dashboard/dashboard.html"><img
+					src="../../resources/images/hrms_logo.png" alt="" /></a>
+			</div>
+			<div class="headerinner">
+				<ul class="headmenu">
+					<li class="odd"><a href="../staticpages/aboutUs.html"> <span
+							class="head-icon fa fa-info-circle fa-4x"></span> <span
+							class="headmenu-label">About Us</span>
+					</a></li>
+					<li><a href="../staticpages/FAQ.html"><span
+							class="head-icon fa fa-pencil-square-o fa-4x"></span> <span
+							class="headmenu-label">FAQ</span> </a></li>
+					<li class="odd"><a href="../staticpages/Help.html"> <span
+							class="head-icon fa fa-question-circle fa-4x"></span> <span
+							class="headmenu-label">Help</span>
+					</a></li>
+					<li class="odd"><a href="../staticpages/notifications.html"
+						class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+							<span class="count" id="notification_Count"></span> <span
+							class="head-icon fa fa-bell-o fa-4x"></span> <span
+							class="headmenu-label">Notifications</span>
+					</a>
+						<ul class="dropdown-menu" id="">
+							<li class="nav-header">Notifications</li>
+							<li id="notification_dropdown"></li>
+							<li id="viewMore"><a href="">View More Message</a></li>
+						</ul></li>
+					<li class="right">
+						<div class="userloggedinfo">
+							<!-- Profile will set dynamically.-->
+							<img id="profileImg" alt="" />
+							<div class="userinfo">
+								<h5>
+									Hi&nbsp;&nbsp;<span id="userName_id"
+										style="font-style: italic;"></span>
+								</h5>
+								<ul>
+									<li><a href="../user/editProfile.html"><i
+											class="fa fa-pencil-square-o"></i>&nbsp; &nbsp;Edit Profile</a></li>
+									<li><a href="../user/changePassword.html"><i
+											class="fa fa-key"></i>&nbsp; &nbsp;Change Password</a></li>
+									<li><a href="#" id="logout_link"><i
+											class="fa fa-unlock"></i>&nbsp; &nbsp;Sign Out</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--headmenu-->
+			</div>
+		</div>
+		<div class="leftpanel">
+			<div class="leftmenu" id="orgoradminuser_menu_id22"></div>
+			<!--leftmenu-->
+		</div>
+		<!-- leftpanel -->
+		<div class="rightpanel">
+			<ul class="breadcrumbs">
+				<li><a href="../dashboard/dashboard.html"><i
+						class="fa fa-home"></i></a> <span class="separator"></span></li>
+				<li>Time Approvals</li>
+				<li class="right" id="color_skin"><a href=""
+					data-toggle="dropdown" class="dropdown-toggle"><i
+						class="fa fa-tint"></i>&nbsp;Change Skins</a>
+					<ul class="dropdown-menu pull-right skin-color">
+						<li><a id="default" href="default">Default</a></li>
+						<li><a id="navyblue" href="navyblue">Navy Blue</a></li>
+						<li><a id="palegreen" href="palegreen">Pale Green</a></li>
+						<li><a id="red" href="red">Red</a></li>
+						<li><a id="green" href="green">Green</a></li>
+						<li><a id="brown" href="brown">Brown</a></li>
+					</ul></li>
+			</ul>
+			<!--pageheader-->
+			<div class="pageheader">
+				<div class="pageicon">
+					<i class="iconfa-time"></i>
+				</div>
+				<div class="pagetitle">
+					<!-- <h5>Reports</h5> -->
+					<h1>My Time</h1>
+				</div>
+			</div>
+			<!--pageheader-->
+
+
+			<div class="maincontent">
+				<div class="maincontentinner">
+					<div class="panel panel-default" id="timesheet_panel">
+						<h4 class="widgettitle">
+							<i class='fa fa-table'></i>&nbsp;Edit Time Info
+
+						</h4>
+						<form class="form-inline" id="addTimeSheetForm">
+							<div class='panel-body filters'>
+
+
+								<div class='row'>
+									<form class="form form-horizontal form-inline">
+
+
+										<div class='col-lg-4'>
+
+											&nbsp; <label for="gemsEditCustomer">Select
+												Month/Year</label><font color="red">*</font> <input type="text"
+												id="demo-1" class="form-control"
+												placeholder="Select Month/Year" readonly>
+											<div id="form_save_error_message1"
+												style="color: red; display: none">
+												<p align=\"center\">Error: Select month/year to proceed
+													further</p>
+											</div>
+
+										</div>
+
+
+										<input type="hidden" name="rowCount" id="rowCount"> <input
+											type="hidden" name="gemsEmployeeTimeSheetHeaderId"
+											id="gemsEmployeeTimeSheetHeaderId">
+
+										<div class='col-lg-8'></div>
+
+
+
+									</form>
+								</div>
+
+
+							</div>
+							<div class="box">
+
+								<div class="table-wrapper">
+									<div class="pinned">
+										<table id="timesheet_table"
+											class="table table-bordered responsive nowrap table-hover small-text timesheet_table">
+											<thead>
+												<tr class="tr-header" id="timesheet_heading1">
+
+												</tr>
+											</thead>
+											<tbody id="projectInfo">
+											</tbody>
+										</table>
+									</div>
+									<div class="scrollable">
+										<table id="timesheet_table1"
+											class="table table-bordered responsive nowrap table-hover small-text timesheet_table1">
+											<thead>
+												<tr class="tr-header" id="timesheet_heading">
+												</tr>
+											</thead>
+											<tbody id="timeInfo">
+
+											</tbody>
+											<tbody id="timeInfoColCount">
+
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+
+
+							</div>
+							<!-- end box ---->
+							<div id="results"></div>
+							<div id="form_save_error_message"
+								style="color: red; display: none">
+								<p align=\"center\">Error: IsApproved and Remarks are
+									mandatory fields</p>
+							</div>
+							<div class="panel panel-default">
+								<h4 class="widgettitle">Timesheet Approver Remarks</h4>
+								<div class='panel-body filters'>
+									<div class='row'>
+										<div class='col-lg-2'>
+											<div class="form-group">
+												<label for="proName1">Is Approved ?<font color="red">*</font></label>
+
+											</div>
+										</div>
+										<div class='col-lg-10'>
+											<div class="form-group">
+												<input type="checkbox" name="timeSheetIsApproved"
+													id="timeSheetIsApproved" />
+
+											</div>
+										</div>
+
+									</div>
+									<div class='row'>
+										<div class='col-lg-2'>
+											<div class="form-group">
+												<label for="proName2">Remarks<font color="red">*</font><label>
+											</div>
+										</div>
+										<div class='col-lg-10'>
+											<div class="form-group">
+												<textarea id="timesheet_remarks" name="timesheet_remarks"
+													class="form-control" rows="5" cols="75" maxlength="500"
+													placeholder="Remarks"></textarea>
+												<span id="rchars">500</span>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<button type="submit"
+												class="btn btn-primary timesheet_submit_button"
+												id="timesheet_submit_button">Submit</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- End of Panel Body -->
+					<!-- Additional Comment Modal Window -->
+
+					<div id="dialog" title="Time Info">
+						<table style="text-align: center">
+							<tr>
+								<td colspan="2"><label for="proName1">Date:</label> <input
+									type="text" id="time_date" class="form-control" readonly>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"><label for="proName1">Hours:</label> <input
+									type="number" step="any" id="hours" class="form-control"
+									placeholder="Enter Hours"></td>
+							</tr>
+							<tr>
+								<td colspan="2"><label for="proName1">Task
+										Description:<label> <textarea id="comments"
+												name="comments" class="form-control" rows="5" cols="75"
+												maxlength="500" placeholder="Task Description"></textarea></td>
+							</tr>
+
+						</table>
+					</div>
+
+
+
+
+
+
+
+
+
+
+					<!-- end of model window -->
+
+					<div class="footer">
+						<div class="footer-left">
+							<span>&copy; 2015. BPA Technologies. All Rights Reserved.</span>
+						</div>
+						<div class="footer-right">
+							<span>Powered by: <a href="http://www.bpatech.com"
+								target="_blank">BPA Technologies</a></span>
+						</div>
+					</div>
+					<!--footer-->
+				</div>
+				<!--maincontentinner-->
+			</div>
+
+
+		</div>
+		<!--maincontentinner-->
+	</div>
+	<!--maincontent-->
+	<!-- custom block Ui STARTS HERE-->
+	<div id="loading-div-background" style="display: none;">
+		<div id="loading-div" class="ui-corner-all">
+			<img style="height: 50%; margin: 10px;"
+				src="../../resources/images/loading.gif" alt="Loading.." />
+			<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+				wait...</h4>
+		</div>
+	</div>
+
+	<div class="modal fade" id="success_timesheet_modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">Info</h4>
+				</div>
+				<div class="modal-body">
+					<p>Timesheet updated successfully</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="ok_btn">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="error_modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">Error</h4>
+				</div>
+				<div class="modal-body">
+					<p style="color: red">!! Fill all mandatory fields before
+						save/submit data.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="error_btn">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- custom block Ui ENDS HERE-->
+	<script src="../../resources/js/atoc_common.js"></script>
+	<script src="../../view/timesheet/approveTimeSheet.js"></script>
+	<script src="../../view/timesheet/jquery.mtz.monthpicker.js"></script>
+	<script src="../../view/staticpages/notifications.js"></script>
+	<script src="../../resources/js/config.js"></script>
+	<script src="../../resources/js/RestrictRedirection.js"></script>
+	<script src="../../resources/js/BackButtonRestrict.js"></script>
+	<script src="../../resources/js/Application.js"></script>
+	<script type="text/javascript"
+		src="../../resources/js/jquery.blockUI.js"></script>
+	<script src="../../resources/js/leftnavigation.js"></script>
+	<script>
+		setUserTokenToRequestHeader(sessionStorage.getItem("userToken"));
+		setProfileImage(sessionStorage.getItem("profileImgData"));
+	</script>
+	<script language="JavaScript">
+	
+
+  
+  </script>
+
+
+
+</body>
+</html>

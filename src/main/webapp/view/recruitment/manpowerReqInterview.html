@@ -1,0 +1,86 @@
+<table id="interviewerList_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+
+			<th>Interviewer Name</th>
+			<th>Interview Date/Time</th>
+			<th>Level</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<div class="Widget">
+	<form id="interviewer-form" novalidate="novalidate">
+		<h4 class="widgettitle">Assign Interviewer</h4>
+		<div class="widgetcontent">
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Interviewer</label>&nbsp;<font color="red">*</font> <span
+							class="field"> <select class="form-control"
+							id="dropdown_interviewer" name="dropdown_interviewer">
+						</select> <input type="hidden" name="gemsMapowerRequestId"
+							id="gemsMapowerRequestId" /> <input type="hidden"
+							name="gemsMapowerRequestInterviewId"
+							id="gemsMapowerRequestInterviewId" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Interview Date</label>&nbsp;<font color="red">*</font><span
+							class="field"> <input id="interviewDate" type="text"
+							name="interviewDate" placeholder="Select Interview Date"
+							class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Time (HH:MM AM/PM)</label><span class="field"> <input
+							id="interviewTime" type="text" name="interviewTime"
+							placeholder="hh:mm AM/PM" class="form-control" />
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Level</label>&nbsp;<font color="red">*</font> <span
+							class="field"> <input id="levelNo" type="text"
+							name="levelNo" placeholder="Interview Level" class="form-control" />
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group" align="right">
+				<button type="submit" class="btn btn-primary" id="addInterviewerBtn">Save</button>
+				<button type="reset" class="btn btn-primary"
+					id="cancelInterviewerBtn">Cancel</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+<script src="../../view/recruitment/manpowerReqInterview.js"></script>
+
+

@@ -1,0 +1,122 @@
+<table id="employeeBank_table"
+	class="table table-bordered responsive nowrap" cellspacing="0"
+	width="100%">
+	<thead>
+		<tr>
+
+			<th>Bank Name</th>
+			<th>Account No.</th>
+			<th>Account Type</th>
+			<th>IFSC Code</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<div class="Widget">
+	<form id="employee-bank-form" novalidate="novalidate">
+		<h4 class="widgettitle">Bank Account Information</h4>
+		<div class="widgetcontent">
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>Bank</label>&nbsp;<font color="red">*</font> <span
+							class="field"> <input type="hidden"
+							name="empbankGemsEmployeeMasterId"
+							id="empbankGemsEmployeeMasterId" /> <input type="hidden"
+							name="gemsEmpBankDetailId" id="gemsEmpBankDetailId" /> <input
+							type="text" name="bankName" id="bankName" placeholder="Bank Name"
+							class="form-control" />
+
+
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>A/C Number</label><span class="field"> <input
+							type="text" name="bankAccountNumber" id="bankAccountNumber"
+							placeholder="A/C Number" class="form-control" />
+						</span>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class="form-group">
+						<label>IFSC Code </label>&nbsp;<font color="red">*</font> <span
+							class="field"> <input id="bankAccountRoutingNo"
+							type="text" name="bankAccountRoutingNo" placeholder="IFSC Code"
+							class="form-control" />
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-4'>
+					<p>
+						<label>Is Active ?</label> &nbsp;<span class="field"> <br>
+						<input type="checkbox" name="activeStatus" id="activeStatus" />
+						</span>
+					</p>
+				</div>
+			</div>
+
+
+			<div class="form-group" align="right">
+				<button type="submit" class="btn btn-primary"
+					id="addEmployeeBankBtn">Save</button>
+				<button type="reset" class="btn btn-primary" id="empBank_cancel_btn">Cancel</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+<div id="loading-div-background" style="display: none;">
+	<div id="loading-div" class="ui-corner-all">
+		<img style="height: 50%; margin: 10px;"
+			src="../../resources/images/loading.gif" alt="Loading.." />
+		<h4 style="color: #ffffff; font-size: 18px; font-weight: normal;">Please
+			wait...</h4>
+	</div>
+</div>
+<div class="modal fade" id="success_employeebank_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">Success</h4>
+			</div>
+			<div class="modal-body">
+				<p>Data saved successfully</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="ok_bankbtn">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="error_employeebank_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">Error</h4>
+			</div>
+			<div class="modal-body">
+				<p style="color: red">Problem in saving data.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="error_bankbtn">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../view/employee/employeeBankAcctInfo.js"></script>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+	http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/aop   
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+	<!-- the parent application context definition for the hrms application -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceId" />
+		<property name="annotatedClasses">
+			<list>
+				<!-- Gems Master Persistence class configuration -->
+
+				<value>eProject.domain.master.GemsActivityMaster</value>
+				<value>eProject.domain.master.GemsBusinessUnit</value>
+				<value>eProject.domain.master.GemsCountryMaster</value>
+				<value>eProject.domain.master.GemsOrganisation</value>
+				<value>eProject.domain.master.GemsRoleMaster</value>
+				<value>eProject.domain.master.GemsUserMaster</value>
+				<value>eProject.domain.master.GemsComponentMaster</value>
+				<value>eProject.domain.master.GemsDesignation</value>
+				<value>eProject.domain.master.GemsDepartment</value>
+				<value>eProject.domain.master.GemsCurrencyMaster</value>
+				<value>eProject.domain.master.GemsEducationMaster</value>
+				<value>eProject.domain.master.GemsEmploymentStatus</value>
+				<value>eProject.domain.master.GemsTransactionApprovalMaster</value>
+				<value>eProject.domain.master.GemsRoleTransactionApproval</value>
+				<value>eProject.domain.master.GemsNationalitiesMaster</value>
+				<value>eProject.domain.master.GemsPayGrade</value>
+				<value>eProject.domain.master.GemsWorkShiftMaster</value>
+				<value>eProject.domain.master.GemsAlertNotificationMaster</value>
+				<value>eProject.domain.master.GemsNotification</value>
+				<value>eProject.domain.master.GemsNotificationAssignment</value>
+				<value>eProject.domain.master.GemsTransactionApprovalMaster</value>
+				<value>eProject.domain.master.GemsUserToken</value>
+
+				<!-- Gems Employee Persistence class configuration -->
+				<value>eProject.domain.employee.GemsEmpBankDetail</value>
+				<value>eProject.domain.employee.GemsEmpEducationDetail</value>
+				<value>eProject.domain.employee.GemsEmpSalaryComponent</value>
+				<value>eProject.domain.employee.GemsEmployeeContactDetail</value>
+				<value>eProject.domain.employee.GemsEmployeeDependentDetail</value>
+				<value>eProject.domain.employee.GemsEmployeeEmergencyContact</value>
+				<value>eProject.domain.employee.GemsEmployeeImmigrationDetail
+				</value>
+				<value>eProject.domain.employee.GemsEmployeeJobDetail</value>
+				<value>eProject.domain.employee.GemsEmployeeMaster</value>
+				<value>eProject.domain.employee.GemsEmployeeWorkExp</value>
+				<value>eProject.domain.employee.GemsEmplyeeLeaveSummary</value>
+				<value>eProject.domain.employee.GemsEmployeeLeaveMaster</value>
+				<value>eProject.domain.employee.GemsEmployeeLeaveLine</value>
+				<value>eProject.domain.employee.GemsEmployeeSkillDetail</value>
+				<value>eProject.domain.employee.GemsEmployeePaySlipDetail</value>
+
+				<!-- Leave Management -->
+				<value>eProject.domain.leavemanagement.GemsLeavePeriodMaster</value>
+				<value>eProject.domain.leavemanagement.GemsLeaveTypeMaster</value>
+				<value>eProject.domain.leavemanagement.LeaveSummayMaster</value>
+
+				<!-- Project -->
+				<value>eProject.domain.project.GemsProjectTypeMaster</value>
+				<value>eProject.domain.project.GemsProjectMaster</value>
+				<value>eProject.domain.project.GemsProjectResourceMaster</value>
+
+				<!-- Customer -->
+				<value>eProject.domain.customer.GemsCustomerContact</value>
+				<value>eProject.domain.customer.GemsCustomerMaster</value>
+				<value>eProject.domain.customer.GemsCustomerDocument</value>
+
+				<!-- Recruitment -->
+				<value>eProject.domain.recruitment.GemsCandidateContactDetail
+				</value>
+				<value>eProject.domain.recruitment.GemsCandidateEducationDetail
+				</value>
+				<value>eProject.domain.recruitment.GemsCandidateImmigrationDetail
+				</value>
+				<value>eProject.domain.recruitment.GemsCandidateMaster</value>
+				<value>eProject.domain.recruitment.GemsCandidateWorkExp</value>
+				<value>eProject.domain.recruitment.GemsCandidateSkillDetail</value>
+
+
+
+				<value>eProject.domain.recruitment.GemsRecruitmentRequest</value>
+				<value>eProject.domain.recruitment.GemsRecruitmentRequestLine
+				</value>
+				<value>eProject.domain.recruitment.GemsRecruitmentRequirementCandidate
+				</value>
+				<value>eProject.domain.recruitment.GemsCandidateStatusMaster</value>
+				<value>eProject.domain.recruitment.GemsManpowerRequestInterview
+				</value>
+
+				<value>eProject.domain.recruitment.GemsManpowerRequest</value>
+
+				<value>eProject.domain.timesheet.GemsEmployeeTimeSheetHeader</value>
+				<value>eProject.domain.timesheet.GemsEmployeeTimeSheet</value>
+				<value>eProject.domain.timesheet.GemsEmployeeTimeSheetView</value>
+				
+				<value>eProject.domain.workflow.GemsWorkFlowHeader</value>
+				<value>eProject.domain.workflow.GemsWorkFlowLine</value>
+				<value>eProject.domain.workflow.GemsWorkFlowTransaction</value>
+
+
+			</list>
+		</property>
+
+
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<!-- <prop key="hibernate.connection.release_mode">after_statement</prop> -->
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<value>buildInfo</value>
+		</property>
+		<!-- Or a comma separated list if you have multiple .properties files -->
+	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+	<bean id="dataSourceId" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="resourceRef" value="true" />
+		<property name="jndiName" value="jdbc/hrmserp" />
+	</bean>
+
+	<!-- JAVA MAIL SENDER -->
+
+	<context:property-placeholder location="classpath:/properties/mail.properties" />
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+
+		<property name="host" value="${javaMailSender.host}" />
+		<property name="port" value="${javaMailSender.port}" />
+		<property name="username" value="${javaMailSender.username}" />
+		<property name="password" value="${javaMailSender.password}" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<bean id="javaMailSender" class="eProject.service.mail.JavaMailSender">
+		<property name="mailSender" ref="mailSender" />
+		<property name="simpleMailMessage" ref="simpleMailMessage" />
+	</bean>
+
+	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+
+		<property name="from" value="from@no-spam.com" />
+		<property name="to" value="to@no-spam.com" />
+		<property name="subject" value="Testing Subject" />
+		<property name="text">
+			<value>
+			<![CDATA[
+				Dear %s,
+				Mail Content : %s
+			]]>
+			</value>
+		</property>
+	</bean>
+
+	<!-- <bean id = "serviceFilter" class = "com.bpa.qaproduct.util.ServiceFilter" 
+		/> -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/emailtemplates/" />
+	</bean>
+
+
+	<aop:aspectj-autoproxy>
+	</aop:aspectj-autoproxy>
+
+
+
+</beans>
