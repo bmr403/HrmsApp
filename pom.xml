@@ -467,6 +467,10 @@
 			<id>Maven Central</id>
 			<url>http://repo.maven.apache.org/maven2/</url>
 		</repository>
+		<repository>
+      			<id>nexus</id>
+      			<url>http://192.168.0.48:8081/repository/maven-snapshots/</url>
+    		</repository>
 
 	</repositories>
 	<build>
